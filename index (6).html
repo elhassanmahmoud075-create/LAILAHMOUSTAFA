@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laila Hussein Moustafa, Ph.D.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #F5F2EC;
+      --green:      #2B4A38;
+      --terra:      #C4663A;
+      --terra-dk:   #A8502A;
+      --ink:        #1A1A1A;
+      --ink-mid:    #4A4540;
+      --ink-light:  #8A857E;
+      --rule:       #D0C9BF;
+      --white:      #FFFFFF;
+      --serif:      'Playfair Display', Georgia, serif;
+      --body:       'Source Serif 4', Georgia, serif;
+      --max-w:      980px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 400;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--cream);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .nav-name {
+      display: block;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--ink);
+      padding: 14px 0 10px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      border-top: 1px solid var(--rule);
+    }
+
+    .nav-links li { display: flex; align-items: center; }
+
+    .nav-links li:not(:last-child)::after {
+      content: '·  ·  ·';
+      color: var(--ink-light);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      padding: 0 2px;
+    }
+
+    .nav-links a {
+      font-family: var(--serif);
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 10px 16px;
+      display: block;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-links a.active { background: var(--ink); color: var(--white); }
+
+    .nav-spacer { height: 110px; }
+
+    /* ── PAGE ── */
+    .page { max-width: var(--max-w); margin: 0 auto; padding: 0 48px; }
+
+    /* ── HERO (green, no dot) ── */
+    #home {
+      background: var(--green);
+      padding: 88px 48px 96px;
+      text-align: center;
+    }
+
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid rgba(196,102,58,0.45);
+      color: var(--terra);
+      font-family: var(--body);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      padding: 6px 20px;
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    #home h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      font-weight: 900;
+      font-style: italic;
+      color: var(--terra);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero-role {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--terra);
+      line-height: 1.4;
+      margin-bottom: 18px;
+    }
+
+    .hero-inst {
+      font-family: var(--body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 32px;
+    }
+
+    .hero-divider {
+      width: 52px; height: 1px;
+      background: rgba(196,102,58,0.4);
+      margin: 0 auto 32px;
+    }
+
+    .hero-desc {
+      font-family: var(--body);
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.85;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTIONS ── */
+    section:not(#home) {
+      padding: 80px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 48px;
+      line-height: 1.1;
+    }
+
+    .section-rule {
+      height: 1px;
+      background: var(--ink);
+      opacity: 0.15;
+      margin-bottom: 48px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-family: var(--body);
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .about-cta { margin-top: 36px; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--terra);
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      font-style: italic;
+      padding: 13px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--terra-dk); }
+
+    /* Photo */
+    .profile-photo {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      margin-bottom: 20px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* Education card */
+    .edu-card { background: var(--green); padding: 32px 26px; border-radius: 2px; }
+    .edu-card-title {
+      font-family: var(--body); font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 22px;
+    }
+    .edu-item { padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.1); }
+    .edu-item:first-of-type { border-top: none; padding-top: 0; }
+    .edu-degree { font-family: var(--serif); font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 4px; line-height: 1.4; }
+    .edu-school { font-family: var(--body); font-size: 0.8rem; color: var(--terra); }
+    .edu-note { font-family: var(--body); font-size: 0.74rem; color: rgba(255,255,255,0.45); margin-top: 3px; }
+
+    /* ── RESEARCH ── */
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+    .research-card {
+      background: rgba(255,255,255,0.7);
+      padding: 32px 26px;
+      border-top: 4px solid transparent;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .research-card:hover { border-top-color: var(--terra); background: var(--white); }
+
+    .research-num { font-family: var(--serif); font-size: 0.78rem; font-weight: 700; color: var(--terra); letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
+    .research-card h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--green); margin-bottom: 12px; line-height: 1.35; }
+    .research-card p { font-family: var(--body); font-size: 0.9rem; color: var(--ink-mid); line-height: 1.75; }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { display: grid; grid-template-columns: 180px 1fr; gap: 40px; padding: 28px 0; border-top: 1px solid var(--rule); }
+    .exp-item:last-child { border-bottom: 1px solid var(--rule); }
+    .exp-date { font-family: var(--body); font-size: 0.9rem; font-style: italic; color: var(--ink-light); padding-top: 4px; }
+    .exp-role { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+    .exp-org { font-family: var(--body); font-size: 0.9rem; color: var(--terra); }
+
+    /* ── PUBLICATIONS (full-width green) ── */
+    #publications { background: var(--green); padding: 80px 0; border-top: none; }
+    #publications .section-title { color: var(--terra); }
+    #publications .section-rule { background: var(--terra); opacity: 0.3; }
+
+    .pub-group { margin-bottom: 52px; }
+    .pub-group-label { font-family: var(--body); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terra); }
+    .pub-item { display: grid; grid-template-columns: 54px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); align-items: start; }
+    .pub-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .pub-year { font-family: var(--body); font-size: 0.82rem; font-style: italic; color: rgba(255,255,255,0.38); padding-top: 3px; }
+    .pub-title { font-family: var(--serif); font-size: 1rem; color: var(--white); line-height: 1.5; margin-bottom: 5px; }
+    .pub-venue { font-family: var(--body); font-size: 0.85rem; font-style: italic; color: rgba(255,255,255,0.52); }
+    .pub-badge { display: inline-block; margin-top: 6px; font-size: 0.7rem; font-family: var(--body); letter-spacing: 0.08em; color: var(--terra); background: rgba(196,102,58,0.15); padding: 2px 10px; border-radius: 2px; }
+
+    /* ── LECTURES ── */
+    .lecture-item { display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--rule); align-items: start; }
+    .lecture-item:last-child { border-bottom: 1px solid var(--rule); }
+    .lecture-year { font-family: var(--body); font-size: 0.85rem; font-style: italic; color: var(--ink-light); padding-top: 3px; }
+    .lecture-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 5px; line-height: 1.4; }
+    .lecture-venue { font-family: var(--body); font-size: 0.88rem; font-style: italic; color: var(--ink-mid); }
+
+    /* ── SERVICE ── */
+    .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 64px; }
+    .service-item { padding: 18px 0; border-top: 1px solid var(--rule); }
+    .service-org { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+    .service-role { font-family: var(--body); font-size: 0.88rem; color: var(--ink-mid); margin-bottom: 2px; }
+    .service-period { font-family: var(--body); font-size: 0.8rem; color: var(--terra); font-style: italic; }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    .contact-intro { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--ink-mid); max-width: 520px; margin: 0 auto 48px; line-height: 1.8; }
+    .contact-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .contact-card { background: var(--white); border: 1px solid var(--rule); padding: 28px 36px; border-radius: 2px; min-width: 200px; text-align: left; }
+    .contact-card-label { font-family: var(--body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terra); margin-bottom: 8px; }
+    .contact-card-val { font-family: var(--serif); font-size: 1rem; color: var(--green); text-decoration: none; display: block; line-height: 1.5; }
+    a.contact-card-val:hover { color: var(--terra); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--green); padding: 28px 48px; text-align: center; font-family: var(--body); font-size: 0.84rem; color: rgba(255,255,255,0.38); }
+
+    /* ── ANIMATIONS ── */
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .nav-name { font-size: 1.2rem; }
+      .nav-links { flex-wrap: wrap; }
+      .nav-links a { padding: 8px 10px; font-size: 0.8rem; }
+      .page { padding: 0 20px; }
+      #home { padding: 60px 20px 72px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .research-grid { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      .lecture-item { grid-template-columns: 50px 1fr; }
+      #publications div { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-name">Laila Hussein Moustafa, Ph.D.</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#lectures">Lectures</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="nav-spacer"></div>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-inner">
+      <div class="hero-tag">Fulbright Specialist · U.S. Department of State · 2019–2023</div>
+      <h1>Laila Hussein Moustafa</h1>
+      <div class="hero-role">Associate Professor &amp; MENA Studies,<br>and AI Policy Subject Specialist</div>
+      <div class="hero-inst">University of Illinois Urbana-Champaign</div>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">Exploring data privacy and the preservation of cultural heritage across conflict zones and AI governance.</p>
+    </div>
+  </section>
+
+  <div class="page">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title fade">About</h2>
+      <div class="section-rule"></div>
+      <div class="about-grid">
+        <div class="about-text fade">
+          <p>Laila Hussein Moustafa is Associate Professor of Library Administration and Middle East and North African Studies Librarian at the University of Illinois Urbana-Champaign, where she also holds an appointment as Adjunct Faculty in the School of Information Sciences. She has served in key leadership roles, including Acting African Studies Librarian, and has built a sustained record of contributions to area studies librarianship, archival practice, and international scholarship.</p>
+          <p>Moustafa's scholarship addresses cultural heritage preservation, archives in contexts of conflict, and the role of libraries in sustaining knowledge production under conditions of displacement and political instability. Her publications have appeared in peer-reviewed venues including The American Archivist, Archivaria, Library Management, and RBM, and examine disaster planning, archival absence, and the reconstruction of knowledge infrastructures in the Middle East and other conflict-affected regions.</p>
+          <p>Her work further engages digital preservation, data ethics, and emerging technologies, including the implications of artificial intelligence for cultural heritage and academic libraries. She has delivered invited lectures and keynote presentations in national and international venues, including programs organized by UNESCO, IFLA, and the U.S. Department of State.</p>
+          <p>A Fulbright Specialist, Moustafa has an established record of professional service and leadership, including roles with the Middle East Librarians Association, the Endangered Archives Programme at the British Library, and IFLA. Her record of scholarship, international engagement, and professional leadership demonstrates sustained contributions to the fields of library and information science and Middle East and North African studies and reflects a profile of national and international standing.</p>
+          <div class="about-cta">
+            <a href="mailto:lhmoustafa79@gmail.com" class="btn-primary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="fade">
+          <img src="LailaHusseinMoustafa.jpg" alt="Laila Hussein Moustafa" class="profile-photo" />
+          <div class="edu-card">
+            <div class="edu-card-title">Education</div>
+            <div class="edu-item">
+              <div class="edu-degree">Ph.D., Information Studies</div>
+              <div class="edu-school">Dominican University, Chicago</div>
+              <div class="edu-note">CBIST · AI in Academic Libraries & Data Privacy</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-degree">M.A., Medieval Studies</div>
+              <div class="edu-school">New York University</div>
+              <div class="edu-note">Focus: Shiism</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-degree">M.S., Library & Information Science</div>
+              <div class="edu-school">Long Island University, New York</div>
+              <div class="edu-note">Focus: Web 2.0 Tools</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-degree">Scholarship, Human Rights & International Law</div>
+              <div class="edu-school">Columbia University, New York</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title fade">Experience</h2>
+      <div class="section-rule"></div>
+      <div class="exp-item fade">
+        <div class="exp-date">2019 – Present</div>
+        <div>
+          <div class="exp-role">Associate Professor — MENA Subject Specialist</div>
+          <div class="exp-org">Middle East & North African (MENA) Studies · University of Illinois, Urbana-Champaign</div>
+        </div>
+      </div>
+      <div class="exp-item fade">
+        <div class="exp-date">2015 – Present</div>
+        <div>
+          <div class="exp-role">Adjunct Faculty of Information Science</div>
+          <div class="exp-org">iSchool · University of Illinois, Urbana-Champaign</div>
+        </div>
+      </div>
+      <div class="exp-item fade">
+        <div class="exp-date">2012 – 2018</div>
+        <div>
+          <div class="exp-role">Assistant Professor of Library Administration</div>
+          <div class="exp-org">Middle East & North African Studies Librarian · University of Illinois, Urbana-Champaign</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- PUBLICATIONS full-width green -->
+  <section id="publications">
+    <div style="max-width:var(--max-w); margin:0 auto; padding:0 48px;">
+      <h2 class="section-title fade">Publications</h2>
+      <div class="section-rule"></div>
+
+      <div class="pub-group fade">
+        <div class="pub-group-label">Journal Articles & Conference Proceedings</div>
+        <div class="pub-item"><div class="pub-year">2026</div><div><div class="pub-title"><a href="https://www.academic-leader.com/topics/risk-management/ai-in-libraries-the-hidden-privacy-crisis/" target="_blank" style="color:inherit; text-decoration:underline;">AI in Libraries: The Hidden Privacy Crisis</a></div><div class="pub-venue">Academic Leader, March 2, 2026</div></div></div>
+        <div class="pub-item"><div class="pub-year">2024</div><div><div class="pub-title">Book Review: "Moroccan Other-Archives"</div><div class="pub-venue">American Archives</div><span class="pub-badge">Invited</span></div></div>
+        <div class="pub-item"><div class="pub-year">2023</div><div><div class="pub-title">When Gaza's Libraries Are Destroyed, More Is Lost Than Books</div><div class="pub-venue">Los Angeles Times, December 12, 2023</div><span class="pub-badge">Invited</span></div></div>
+        <div class="pub-item"><div class="pub-year">2022</div><div><div class="pub-title">In the Bubble: The Case of The Middle Eastern and Islamic Studies Research in the Time of COVID-19</div><div class="pub-venue">Journal of Library Administration 62(3) — with A. Salamon</div></div></div>
+        <div class="pub-item"><div class="pub-year">2021</div><div><div class="pub-title">Syrian Archive (Review)</div><div class="pub-venue">American Archivist Reviews, January 29, 2021</div><span class="pub-badge">Invited</span></div></div>
+        <div class="pub-item"><div class="pub-year">2018</div><div><div class="pub-title">Research without Archives? The Making and Remaking of Area Studies Knowledge of the Middle East in a Time of Chronic War</div><div class="pub-venue">Archivaria: Journal of the Association of Canadian Archivists 85 (Spring 2018)</div></div></div>
+        <div class="pub-item"><div class="pub-year">2017</div><div><div class="pub-title">The Role of Middle East Studies Librarians in Preserving Cultural Heritage Materials</div><div class="pub-venue">MELA Notes 90</div></div></div>
+        <div class="pub-item"><div class="pub-year">2017</div><div><div class="pub-title">Teaching the Digital Natives</div><div class="pub-venue">Review of Middle East Studies 5, no. 1</div></div></div>
+        <div class="pub-item"><div class="pub-year">2016</div><div><div class="pub-title">Cultural Heritage and Preservation: Lessons from World War II and the Contemporary Conflict in the Middle East</div><div class="pub-venue">The American Archivist 80, no. 2</div></div></div>
+        <div class="pub-item"><div class="pub-year">2016</div><div><div class="pub-title">From Peshawar to Kabul: Preserving Afghanistan's Cultural Heritage during Wartime</div><div class="pub-venue">RBM: A Journal of Rare Book, Manuscripts, and Cultural Heritage 17, no. 2</div></div></div>
+        <div class="pub-item"><div class="pub-year">2015</div><div><div class="pub-title">Endangering Cultural Heritage: A Survey of Disaster Management Planning in Middle East Libraries and Archives</div><div class="pub-venue">Library Management 36, no. 6/7</div></div></div>
+        <div class="pub-item"><div class="pub-year">2013</div><div><div class="pub-title">Disaster Management Plans in Middle East Libraries and Archives in Time of War: Case Studies of Iraq and Egypt</div><div class="pub-venue">Library and Archival Security 26, no. 1/2</div></div></div>
+      </div>
+
+      <div class="pub-group fade">
+        <div class="pub-group-label">Book Chapters</div>
+        <div class="pub-item"><div class="pub-year">2019</div><div><div class="pub-title">Interdisciplinary Education for Teaching Challenging Subjects: The Case of Islam and Violence</div><div class="pub-venue">In Teaching Islamic Studies in the Age of ISIS, The Internet, and Islamophobia, ed. Courtney Dorroll. Indiana University Press.</div></div></div>
+      </div>
+
+      <div class="pub-group fade">
+        <div class="pub-group-label">Reports & Bulletins</div>
+        <div class="pub-item"><div class="pub-year">2020</div><div><div class="pub-title">Digital Expansion and Leadership in Pandemic Times</div><div class="pub-venue">UNESCO, August 2020</div></div></div>
+        <div class="pub-item"><div class="pub-year">2020</div><div><div class="pub-title">Libraries Re-opening During COVID-19: Webinar Report</div><div class="pub-venue">International Leads 34, no. 3 — with G. de Alwis</div></div></div>
+        <div class="pub-item"><div class="pub-year">2020</div><div><div class="pub-title">EIFL and Its Activities: Webinar Report</div><div class="pub-venue">MELA Notes International Leads 34, no. 4</div></div></div>
+        <div class="pub-item"><div class="pub-year">2016</div><div><div class="pub-title">Lessons from World War II and the Holocaust: What Can Be Done to Save Cultural Heritage During Times of War?</div><div class="pub-venue">Proceedings, KU Leuven — with J.S. Harris & B.G. Anderson</div></div></div>
+        <div class="pub-item"><div class="pub-year">2015</div><div><div class="pub-title">Cultural Heritage in Time of Conflict: The Need for a Preservation Plan</div><div class="pub-venue">ILAM, Arab Federation for Libraries and Information (AFLI) no. 15</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page">
+
+    <!-- LECTURES -->
+    <section id="lectures">
+      <h2 class="section-title fade">Invited Lectures &amp; Presentations</h2>
+      <div class="section-rule"></div>
+      <div class="lecture-item fade"><div class="lecture-year">2024</div><div><div class="lecture-title">Artificial Intelligence Integration and Privacy in Academic Libraries</div><div class="lecture-venue">3rd International Conference on Information Literacy (ICIL-Africa), Egypt, October 14–17, 2024</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2024</div><div><div class="lecture-title">Artificial Intelligence (AI), Digital Cultural Heritage, and Preservation: Current Trends and Future Prospects</div><div class="lecture-venue">Third Forum on Heritage Management: Digital Access and AI Applications, Qatar, September 15–16, 2024</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2024</div><div><div class="lecture-title">AI Data: Privacy and Decolonizing Data in Higher Education</div><div class="lecture-venue">Vrije Universiteit Amsterdam, Science & Technology Studies (STS) Event, July 2024</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2024</div><div><div class="lecture-title">Preserving Cultural Heritage at War and the Role of Librarians</div><div class="lecture-venue">Keynote, Beta Phi Mu Honor Society, Simmons University, School of Library and Information Science, May 8, 2024</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2024</div><div><div class="lecture-title">Preserving Knowledge in the Face of Ruin: A Librarian's Perspective on Protecting Cultural Heritage During Conflict</div><div class="lecture-venue">Council on Library Resources (CLR) Interview, 2024</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2019</div><div><div class="lecture-title">Disaster Risk Prevention and Response: Countries in Conflict Zones Supporting Documentary Heritage Preservation in the Arab Region</div><div class="lecture-venue">Organized by UNESCO, IFLA, and Qatar National Library, December 1–2, 2019</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2019</div><div><div class="lecture-title">Archives Under Authoritarianism and Preservation Efforts of Endangered Materials Across the Middle East</div><div class="lecture-venue">Middle East Studies Association, 53rd Annual Meeting, November 14–17, 2019</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2016</div><div><div class="lecture-title">Libraries and Archives in Times of Crisis: When We Should Act and What We Can Do</div><div class="lecture-venue">Keynote, ILA Annual Conference: Discovery, Advocacy, Leadership, Chicago, October 18, 2016</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2016</div><div><div class="lecture-title">Trends, Challenges, and Opportunities in Digitalization and Preservation of Cultural Heritage</div><div class="lecture-venue">Invited by U.S. Department of State and Qatar National Library, Doha, Qatar, October 26, 2016</div></div></div>
+      <div class="lecture-item fade"><div class="lecture-year">2016</div><div><div class="lecture-title">Introduction to Reference, Preservation, Digitization, Disaster Management, and Data Management</div><div class="lecture-venue">Three-day workshop, Qatar University — Invited by U.S. Department of State: American Embassy in Doha, October 23–25, 2016</div></div></div>
+    </section>
+
+    <!-- SERVICE -->
+    <section id="service">
+      <h2 class="section-title fade">Professional Service</h2>
+      <div class="section-rule"></div>
+      <div class="service-grid fade">
+        <div class="service-item"><div class="service-org">Endangered Archives Programme · British Library</div><div class="service-role">International Advisory Panel Member</div><div class="service-period">2016 – Present</div></div>
+        <div class="service-item"><div class="service-org">Middle East Librarians Association (MELA)</div><div class="service-role">Vice President</div><div class="service-period">2019 – 2020</div></div>
+        <div class="service-item"><div class="service-org">Review of Middle East Studies (RoMES)</div><div class="service-role">Advisory Board Member; Co-Editor, Special Issue on Digital Humanities</div><div class="service-period">2018 – Present · Co-Editor 2025–2026</div></div>
+        <div class="service-item"><div class="service-org">IFLA — Genealogy and Local History Standing Committee</div><div class="service-role">Secretary (GENLOC)</div><div class="service-period">2018 – 2021</div></div>
+        <div class="service-item"><div class="service-org">Discovery Partners Institute (DPI)</div><div class="service-role">Grant Reviewer</div><div class="service-period">2020 – 2026</div></div>
+        <div class="service-item"><div class="service-org">Mortenson Center · University of Illinois</div><div class="service-role">Board Member & Associate Program Reviewer</div><div class="service-period">2023 – 2025</div></div>
+        <div class="service-item"><div class="service-org">MELA Book Award Committee (BAC)</div><div class="service-role">Member</div><div class="service-period">2024 – 2025</div></div>
+        <div class="service-item"><div class="service-org">Big Ten — Middle East Libraries Working Group</div><div class="service-role">Consortium Member</div><div class="service-period">2023 – Present</div></div>
+        <div class="service-item"><div class="service-org">Open Learning Exchange · Free Education for Syrians</div><div class="service-role">International Board Member</div><div class="service-period">2017 – 2019</div></div>
+        <div class="service-item"><div class="service-org">Chancellor's Call to Action Research Program · UIUC</div><div class="service-role">Invited Grant Application Reviewer</div><div class="service-period">2024</div></div>
+        <div class="service-item"><div class="service-org">Reviewer — IFLA Journal, Libri, MELA Journal, Fulbright</div><div class="service-role">Peer Review & Grant Review</div><div class="service-period">2017 – 2025</div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title fade">Contact</h2>
+      <div class="section-rule"></div>
+      <p class="contact-intro fade">Open to collaboration, co-authorship, and dialogue on AI governance, privacy, and cultural heritage preservation.</p>
+      <div class="contact-cards fade">
+        <div class="contact-card">
+          <div class="contact-card-label">Email</div>
+          <a href="mailto:lhmoustafa79@gmail.com" class="contact-card-val">lhmoustafa79@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-label">Institution</div>
+          <a href="https://illinois.edu" class="contact-card-val" target="_blank">University of Illinois<br>Urbana-Champaign</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    Laila Hussein Moustafa, Ph.D. &nbsp;·&nbsp; University of Illinois Urbana-Champaign
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 110) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    });
+  </script>
+
+</body>
+</html>
